@@ -3,7 +3,7 @@ sudo: false
 
 language: node_js
 node_js:
-  - "8"
+  - "8.10"
   
 addons:
   apt:
@@ -18,10 +18,18 @@ cache:
 
 install:
   - npm install
+  - npm install -g @angular/cli
 
 script:
   # Use Chromium instead of Chrome.
   - export CHROME_BIN=chromium-browser
-  - xvfb-run -a npm run test --  --no-progress --browser=ChromeNoSandbox
+  - xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
   - xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
 
+notifications:
+  email: 
+    recipients: 
+      - $EMAIL_NOTIFICATION$
+    on_success: never
+    on_failure: always
+    
