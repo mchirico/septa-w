@@ -11,6 +11,7 @@
 # Testing
 tar czf src_environments.tar.gz src/environments
 yes|travis encrypt-file src_environments.tar.gz --add
+rm src_environments.tar.gz
 #ng test
 #
 npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
