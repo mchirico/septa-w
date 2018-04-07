@@ -17,7 +17,7 @@ install:
 - npm install -g @angular/cli
 script:
 - export CHROME_BIN=chromium-browser
-- xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
+- xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox --code-coverage
 - xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
 notifications:
   email:
@@ -29,3 +29,13 @@ before_install:
 - openssl aes-256-cbc -K $encrypted_42dfc908ad7d_key -iv $encrypted_42dfc908ad7d_iv
   -in src_environments.tar.gz.enc -out src_environments.tar.gz -d
 - tar xzf src_environments.tar.gz
+
+before_script:
+- npm install -g codecov
+- npm install coveralls
+- ng lint
+
+script:
+ - codecov
+ - cat ./coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js
+ 
