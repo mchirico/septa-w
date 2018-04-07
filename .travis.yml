@@ -1,35 +1,32 @@
 dist: trusty
 sudo: false
-
 language: node_js
 node_js:
-  - "8.10"
-  
+- '8.10'
 addons:
   apt:
     sources:
-      - google-chrome
+    - google-chrome
     packages:
-      - google-chrome-stable
-
+    - google-chrome-stable
 cache:
   directories:
-     - ./node_modules
-
+  - "./node_modules"
 install:
-  - npm install
-  - npm install -g @angular/cli
-
+- npm install
+- npm install -g @angular/cli
 script:
-  # Use Chromium instead of Chrome.
-  - export CHROME_BIN=chromium-browser
-  - xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
-  - xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
-
+- export CHROME_BIN=chromium-browser
+- xvfb-run -a npm run test -- --single-run --no-progress --browser=ChromeNoSandbox
+- xvfb-run -a npm run e2e -- --no-progress --config=protractor-ci.conf.js
 notifications:
-  email: 
-    recipients: 
-      - $EMAIL_NOTIFICATION$
+  email:
+    recipients:
+    - "$EMAIL_NOTIFICATION$"
     on_success: never
     on_failure: always
-    
+before_install:
+- openssl aes-256-cbc -K $encrypted_42dfc908ad7d_key -iv $encrypted_42dfc908ad7d_iv
+  -in environment.prod.ts.enc -out src/environments/environment.prod.ts -d
+- openssl aes-256-cbc -K $encrypted_42dfc908ad7d_key -iv $encrypted_42dfc908ad7d_iv
+  -in environment.ts.enc -out src/environments/environment.ts -d
