@@ -9,7 +9,9 @@
 # travis encrypt-file src/environments/environment.prod.ts --add
 
 # Testing
-
+tar czf src_environments.tar.gz src/environments
+yes|travis encrypt-file src_environments.tar.gz --add
 ng test
+
 
 
