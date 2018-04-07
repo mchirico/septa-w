@@ -35,7 +35,5 @@ before_script:
 - npm install coveralls
 - ng lint
 
-script:
- - codecov
- - cat ./coverage/coverage.lcov | ./node_modules/coveralls/bin/coveralls.js
+
  

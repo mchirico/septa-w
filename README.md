@@ -1,4 +1,6 @@
 [![Build Status](https://travis-ci.org/mchirico/septa-w.svg?branch=develop)](https://travis-ci.org/mchirico/septa-w)
+[![Maintainability](https://api.codeclimate.com/v1/badges/9cd7821575c67d3268a8/maintainability)](https://codeclimate.com/github/mchirico/septa-w/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/9cd7821575c67d3268a8/test_coverage)](https://codeclimate.com/github/mchirico/septa-w/test_coverage)
 
 
 
