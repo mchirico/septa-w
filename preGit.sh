@@ -19,8 +19,9 @@
 #
 #ng test
 #
-npm run test -- --single-run --no-progress --browser=ChromeNoSandbox --coverage
-npm run e2e -- --no-progress --config=protractor-ci.conf.js --coverage
+npm run test -- --single-run --no-progress --browser=ChromeNoSandbox  --code-coverage
+npm run e2e -- --no-progress --config=protractor-ci.conf.js
+
 
 
 
